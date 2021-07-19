@@ -97,7 +97,16 @@ namespace TestApplication.Services
                 .OrderBy(it => it.day)
                 .ToListAsync();
 
-             return data;
+           /*  foreach (var i in Enumerable.Range(0, 30))
+             {
+                 if (data.Find(it => it.day == i) == null)
+                 {
+                     data.Add(new { day = i, count = 0});
+                 }
+             }*/
+
+
+             return data; //.OrderBy(it => it.day);
         }
     }
 }

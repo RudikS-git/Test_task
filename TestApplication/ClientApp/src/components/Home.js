@@ -174,7 +174,7 @@ const Home = () => {
           </div>
           
         <div className="main__calculations">
-            { rollingRetention && 
+            { rollingRetention != null && 
                 <div>Rolling Retention 7 day:
                     <strong> {rollingRetention}%</strong>
                 </div>
