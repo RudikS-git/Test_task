@@ -1,0 +1,19 @@
+.table {
+    color: #5D6D97 !important;
+    background: white;
+}
+
+.table thead {
+    background: var(--main-background);
+}
+
+.table thead th {
+    border: 0;
+    text-transform: uppercase;
+    line-height: 16px;
+    opacity: 0.4;
+}
+
+.table tr {
+    
+}

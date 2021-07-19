@@ -1,0 +1,24 @@
+.main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.main__header {
+    margin-bottom: 20px;
+}
+
+.main__btn_primary {
+    background-color: #4A9DFF;
+}
+
+.main__btn-group {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+}
+
+.main__calculations {
+    margin-top: 60px;
+}

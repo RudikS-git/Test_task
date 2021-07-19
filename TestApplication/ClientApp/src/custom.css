@@ -1,0 +1,54 @@
+:root {
+  --main-background: #F9F9F9;
+  --main-color: #5D6D97;
+  --main-btn-primary: #4A9DFF;
+  --main-btn-primary-hover: #5aa0f3;
+}
+
+html, body {
+  font-family: Ubuntu, Roboto !important;
+  color: var(--main-color);
+  background: var(--main-background);
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-transform: uppercase;
+  line-height: 16px;
+  opacity: 0.4;
+  margin: 5px;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+label {
+  line-height: 16px !important;
+}
+
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #E01A76;
+}
+
+button {
+  border-radius: 10px !important;
+  margin: 3px !important;
+}
+
+.btn-primary {
+  background-color: var(--main-btn-primary) !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--main-btn-primary-hover) !important;
+}
+
+.btn-second {
+  background: 0 !important;
+  color: black !important;
+}
