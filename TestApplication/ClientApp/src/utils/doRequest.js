@@ -30,7 +30,7 @@ export const doRequest = async (request, errorMsg, opts = defaultOptions) => {
         })
     } catch (e) {
         if (showError) {
-            NotificationManager.error(e?.response?.responseException?.exceptionMessage || 'Произошла ошибка');
+            NotificationManager.error(e?.response?.message || 'Произошла ошибка');
         }
         
         return ({
