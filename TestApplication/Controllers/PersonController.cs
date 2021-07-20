@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -26,15 +27,33 @@ namespace TestApplication.Controllers
         }
 
         [HttpGet("CalculateRolling")]
-        public async Task<double> CalculateRolling(int day = 7)
+        public async Task<IActionResult> CalculateRolling(int day = 7)
         {
-            return await _personService.CalculateRollingAsync(day);
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            var rollingRetention = await _personService.CalculateRollingAsync(day);
+            stopwatch.Stop();
+            
+            return Ok(new
+            {
+                time = (double)stopwatch.ElapsedMilliseconds / 1000,
+                rollingRetention = rollingRetention
+            });
         }
 
         [HttpGet("CalculatePeopleLifeTime")]
-        public async Task<IEnumerable<object>> CalculatePeopleLifeTime()
+        public async Task<IActionResult> CalculatePeopleLifeTime()
         {
-            return await _personService.CalculateLifeTimeAsync();
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            var peopleLifeTime = await _personService.CalculateLifeTimeAsync();
+            stopwatch.Stop();
+
+            return Ok(new
+            {
+                time = (double)stopwatch.ElapsedMilliseconds / 1000,
+                peopleLifeTime = peopleLifeTime
+            });
         }
 
         [HttpPost]

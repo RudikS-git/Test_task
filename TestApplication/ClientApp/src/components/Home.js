@@ -61,9 +61,10 @@ const Home = () => {
         const {data, success, error} = await doRequest(
             () => fetch("api/person/CalculateRolling")
         );
-
+        
         if(success) {
-            setRollingRetention(data.toFixed(2));
+            setRollingRetention(data.rollingRetention.toFixed(2));
+            NotificationManager.success(`Rolling retention calculation completed for ${data.time} sec.`);
         }
         else {
             setState({ ...state, errorMessage: error, isLoading: false });
@@ -76,7 +77,8 @@ const Home = () => {
         );
 
         if(success) {
-            setPeopleLifeTime(data);
+            setPeopleLifeTime(data.peopleLifeTime);
+            NotificationManager.success(`People Life time calculation completed for ${data.time} sec.`);
         }
         else {
             setState({ ...state, errorMessage: error, isLoading: false });
@@ -86,7 +88,6 @@ const Home = () => {
     const calculateHandler = async () => {
         await calculatePeople();
         await calculatePeopleLifeTime();
-        NotificationManager.success("Calculation completed");
     }
     
     const deletePerson = async (id) => {
@@ -150,7 +151,7 @@ const Home = () => {
     
     if(state.isLoading) {
         return (
-            <Alert color="primary">
+            <Alert className="alert__loading" color="primary">
                 Loading...
             </Alert>
         )
@@ -174,16 +175,17 @@ const Home = () => {
           </div>
           
         <div className="main__calculations">
-            { rollingRetention != null && 
-                <div>Rolling Retention 7 day:
-                    <strong> {rollingRetention}%</strong>
-                </div>
+            {
+                rollingRetention != null &&
+                    <div>Rolling Retention 7 day:
+                        <strong> {rollingRetention}%</strong>
+                    </div>
             }
             { peopleLifeTime && <ChartBar peopleLifeTime={peopleLifeTime}/> }
         </div>
 
           <div className="main__btn-group">
-              <Button className="btn-second" color="secondary" onClick={calculateHandler} disabled={state.isLoading}>Calculate</Button>
+              <Button className="btn-primary" color="secondary" onClick={calculateHandler} disabled={state.isLoading}>Calculate</Button>
           </div>
       </div>
     );

@@ -6,7 +6,7 @@
 }
 
 html, body {
-  font-family: Ubuntu, Roboto !important;
+  font-family: Ubuntu !important;
   color: var(--main-color);
   background: var(--main-background);
   margin: 0;
@@ -42,6 +42,7 @@ button {
 
 .btn-primary {
   background-color: var(--main-btn-primary) !important;
+  border-color: var(--main-btn-primary) !important;
 }
 
 .btn-primary:hover {
@@ -51,4 +52,10 @@ button {
 .btn-second {
   background: 0 !important;
   color: black !important;
+}
+
+.alert__loading {
+  background-color: var(--main-btn-primary) !important;
+  border-color: var(--main-btn-primary) !important;
+  color: white;
 }

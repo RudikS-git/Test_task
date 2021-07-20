@@ -16,17 +16,15 @@ export const doRequest = async (request, errorMsg, opts = defaultOptions) => {
         if (response.status === 403 || response.isError) {
             throw { response };
         }
-        
-        const success = response ?? true;
 
-        if (success && showSuccess) {
+        if (showSuccess) {
             NotificationManager.success(successMsg);
         }
         
         return ({
-            data: response || { },
+            data: response,
             error: null,
-            success
+            success: true
         })
     } catch (e) {
         if (showError) {
@@ -35,7 +33,7 @@ export const doRequest = async (request, errorMsg, opts = defaultOptions) => {
         
         return ({
             data: null,
-            error: e?.response?.responseException?.exceptionMessage,
+            error: e?.response?.message,
             success: false,
             status: e?.response?.status
         })

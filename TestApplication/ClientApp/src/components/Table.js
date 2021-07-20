@@ -10,7 +10,7 @@ const Table = ({people, actions}) => {
                     <th>User Id</th>
                     <th>Date Registration</th>
                     <th>Date Last Activity</th>
-                    { actions && <th>Actions</th>}
+                    { actions && <th className="table__th_actions">Actions</th>}
                 </tr>
             </thead>
             <tbody>

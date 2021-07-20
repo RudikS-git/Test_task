@@ -1,6 +1,7 @@
 .table {
     color: #5D6D97 !important;
     background: white;
+    border-radius: 5px;
 }
 
 .table thead {
@@ -12,8 +13,17 @@
     text-transform: uppercase;
     line-height: 16px;
     opacity: 0.4;
+    vertical-align: middle !important;
 }
 
 .table tr {
-    
+    border-bottom: 0.5px solid rgba(93, 110, 151, 0.4) !important;
+}
+
+.table td {
+    vertical-align: middle !important;
+}
+
+.table__th_actions {
+    width: 125px;
 }
